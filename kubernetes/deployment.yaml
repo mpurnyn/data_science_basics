@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec: #spec of the deployment
+  selector:
+    matchLabels: # which pods to apply to?
+      app: nginx-app
+  replicas: 2 #how many do we want?
+  template:
+    metadata:
+      labels:
+        app: nginx-app
+    spec: #spec of the pods
+      containers:
+      - name: nginx
+        image: mginx:1.14.2
+        ports: #which port it is listening on
+        - containerPort: 80
+
+# start with kubectl apply -f deployment.yaml
+# check with kubectl get pod
+# get really detailed info with kubectl describe pod
