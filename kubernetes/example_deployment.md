@@ -14,6 +14,11 @@ using the yaml file
 
 # check with 
     kubectl get pod
-    
+## get ip by adding the option
+    kubectl get pod -o wide
+
 # get really detailed info with 
     kubectl describe pod
+
+# check the service
+    minikube service nginx-service
